@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abdisamad Abdulle - Frontend Developer Portfolio. Bekijk mijn projecten en neem contact op.">
+    <meta name="keywords" content="Frontend Developer, Web Developer, Portfolio, JavaScript, React, HTML, CSS">
+    <meta name="author" content="Abdisamad Abdulle">
+    <title>Abdisamad Abdulle | Frontend Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Loading Animation -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <a href="#home-section" class="logo">Abdisamad.</a>
+        <nav id="nav-menu">
+            <a href="#home-section" class="active" id="home-link">Home</a>
+            <a href="#about-section" id="about-link">Over Mij</a>
+            <a href="#skills-section" id="skills-link">Skills</a>
+            <a href="#projects-section" id="projects-link">Projecten</a>
+            <a href="#contact-section" id="contact-link">Contact</a>
+        </nav>
+        <button id="nav-toggle">
+            <i class='bx bx-menu'></i>
+        </button>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="mobile-menu">
+        <a href="#home-section" class="mobile-link">Home</a>
+        <a href="#about-section" class="mobile-link">Over Mij</a>
+        <a href="#skills-section" class="mobile-link">Skills</a>
+        <a href="#projects-section" class="mobile-link">Projecten</a>
+        <a href="#contact-section" class="mobile-link">Contact</a>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home-section">
+            <div class="home-content">
+                <article class="home-text fade-in">
+                    <h1>Hi, ik ben <span class="logo">Abdisamad</span></h1>
+                    <div class="typing-text" id="typing-text">
+                        <span id="typed-text"></span>
+                        <span class="typing-cursor">|</span>
+                    </div>
+                    <p>Gepassioneerde Frontend Developer met expertise in het bouwen van moderne, responsive en gebruiksvriendelijke webapplicaties. Ik transformeer ideeën naar prachtige digitale ervaringen.</p>
+                    <div class="btn-group">
+                        <a href="#projects-section" class="btn btn-primary">Bekijk Mijn Werk</a>
+                        <a href="#contact-section" class="btn btn-secondary">Neem Contact Op</a>
+                    </div>
+                </article>
+                <figure class="profile-img-wrapper fade-in">
+                    <img src="cv.jpg" alt="Abdisamad Abdulle - Frontend Developer" class="profile-img">
+                </figure>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about-section">
+            <div class="section-title fade-in">
+                <h2>Over Mij</h2>
+                <p>Leer meer over mijn achtergrond en passie</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text slide-in-left">
+                    <h3>Frontend Developer & Creative Thinker</h3>
+                    <p>Mijn naam is Abdisamad Abdulle, en ik ben een gepassioneerde Frontend Developer met een scherp oog voor detail en design. Ik specialiseer me in het creëren van dynamische, responsive en gebruiksvriendelijke webapplicaties die niet alleen mooi zijn, maar ook perfect functioneren.</p>
+                    <p>Met een sterke basis in HTML, CSS, JavaScript en moderne frameworks zoals React, werk ik dagelijks aan het verbeteren van gebruikerservaringen. Ik geloof in clean code, beste practices en het continu leren van nieuwe technologieën.</p>
+                    <p>Wanneer ik niet code, ben ik bezig met het verkennen van de nieuwste tech trends, het leren van nieuwe programmeertalen, en het werken aan persoonlijke projecten die mijn vaardigheden uitdagen en verbeteren.</p>
+                </div>
+                <div class="about-stats slide-in-right">
+                    <div class="stat-card">
+                        <h4>3+</h4>
+                        <p>Jaren Ervaring</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>50+</h4>
+                        <p>Projecten Voltooid</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>30+</h4>
+                        <p>Tevreden Klanten</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>100%</h4>
+                        <p>Tevredenheid</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills-section">
+            <div class="section-title fade-in">
+                <h2>Mijn Skills</h2>
+                <p>Technologieën waar ik mee werk</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3><i class='bx bx-code-alt'></i> Frontend Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML5</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>CSS3 / SCSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Tailwind CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class='bx bx-git-branch'></i> Tools & Platforms</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>GitHub</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>VS Code</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Figma</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>WordPress</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class='bx bx-server'></i> Backend & Database</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Express.js</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MongoDB</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>REST APIs</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects-section">
+            <div class="section-title fade-in">
+                <h2>Mijn Projecten</h2>
+                <p>Bekijk een selectie van mijn recente werk</p>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop" alt="E-commerce Platform" class="project-image">
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Een moderne e-commerce webapplicatie met shopping cart functionaliteit, product filtering en responsive design.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Redux</span>
+                            <span class="tag">Tailwind CSS</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-demo">Live Demo</a>
+                            <a href="https://github.com/abdisamadabdulle" class="btn-code"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=500&fit=crop" alt="Task Management App" class="project-image">
+                    <div class="project-info">
+                        <h3>Task Management App</h3>
+                        <p>Productiviteits app voor het beheren van taken met drag-and-drop functionaliteit en real-time updates.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-demo">Live Demo</a>
+                            <a href="https://github.com/abdisamadabdulle" class="btn-code"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop" alt="Weather Dashboard" class="project-image">
+                    <div class="project-info">
+                        <h3>Weather Dashboard</h3>
+                        <p>Real-time weer applicatie met API integratie, geolocation en 7-dagen voorspelling.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">API</span>
+                            <span class="tag">Chart.js</span>
+                            <span class="tag">SCSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-demo">Live Demo</a>
+                            <a href="https://github.com/abdisamadabdulle" class="btn-code"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=500&fit=crop" alt="Portfolio Website" class="project-image">
+                    <div class="project-info">
+                        <h3>Portfolio Website</h3>
+                        <p>Moderne portfolio website met animaties, dark mode en responsive design voor verschillende apparaten.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Animations</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-demo">Live Demo</a>
+                            <a href="https://github.com/abdisamadabdulle" class="btn-code"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=800&h=500&fit=crop" alt="Social Media Dashboard" class="project-image">
+                    <div class="project-info">
+                        <h3>Social Media Dashboard</h3>
+                        <p>Analytics dashboard voor social media metrics met data visualisatie en interactieve grafieken.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">D3.js</span>
+                            <span class="tag">REST API</span>
+                            <span class="tag">Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-demo">Live Demo</a>
+                            <a href="https://github.com/abdisamadabdulle" class="btn-code"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=500&fit=crop" alt="Restaurant Website" class="project-image">
+                    <div class="project-info">
+                        <h3>Restaurant Website</h3>
+                        <p>Elegante restaurant website met online reserveringssysteem, menukaart en locatie informatie.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">SCSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">PHP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-demo">Live Demo</a>
+                            <a href="https://github.com/abdisamadabdulle" class="btn-code"><i class='bx bxl-github'></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact-section">
+            <div class="section-title fade-in">
+                <h2>Neem Contact Op</h2>
+                <p>Laten we samenwerken aan je volgende project</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class='bx bx-envelope'></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>abdisamad@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class='bx bx-phone'></i>
+                        </div>
+                        <div>
+                            <h4>Telefoon</h4>
+                            <p>+31 6 12345678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class='bx bx-map'></i>
+                        </div>
+                        <div>
+                            <h4>Locatie</h4>
+                            <p>Nederland</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Naam</label>
+                        <input type="text" id="name" name="name" placeholder="Jouw naam" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="jouw@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Onderwerp</label>
+                        <input type="text" id="subject" name="subject" placeholder="Onderwerp van je bericht" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Bericht</label>
+                        <textarea id="message" name="message" placeholder="Jouw bericht..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Verstuur Bericht</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Social Links -->
+    <aside class="social-links">
+        <a href="https://github.com/abdisamadabdulle" target="_blank" aria-label="GitHub">
+            <i class='bx bxl-github'></i>
+        </a>
+        <a href="https://www.linkedin.com/in/abdisamad-abdulle" target="_blank" aria-label="LinkedIn">
+            <i class='bx bxl-linkedin'></i>
+        </a>
+        <a href="https://twitter.com/abdisamadabdulle" target="_blank" aria-label="Twitter">
+            <i class='bx bxl-twitter'></i>
+        </a>
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+            <i class='bx bxl-facebook'></i>
+        </a>
+    </aside>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scroll-top">
+        <i class='bx bx-up-arrow-alt'></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Abdisamad Abdulle. Alle rechten voorbehouden.</p>
+        <div class="footer-links">
+            <a href="#home-section">Home</a>
+            <a href="#about-section">Over Mij</a>
+            <a href="#skills-section">Skills</a>
+            <a href="#projects-section">Projecten</a>
+            <a href="#contact-section">Contact</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
