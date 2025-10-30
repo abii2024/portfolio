@@ -468,7 +468,7 @@ async function fetchGitHubProjects(username, perPage = 6, token = null) {
 
 // ==================== GITHUB CONFIG ====================
 // Update deze username naar je echte GitHub username
-const GITHUB_USERNAME = 'abdisamadabdulle';
+const GITHUB_USERNAME = 'abii2024';
 const GITHUB_REPOS_TO_SHOW = 6;
 
 // Attempt to fetch public repos for the user (no token required for public repos)
