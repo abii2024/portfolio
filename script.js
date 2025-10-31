@@ -1,3 +1,239 @@
+// ==================== CUSTOM CURSOR ====================
+class CustomCursor {
+    constructor() {
+        this.cursor = document.createElement('div');
+        this.cursorDot = document.createElement('div');
+        this.cursor.className = 'custom-cursor';
+        this.cursorDot.className = 'custom-cursor-dot';
+        
+        document.body.appendChild(this.cursor);
+        document.body.appendChild(this.cursorDot);
+        
+        this.init();
+    }
+    
+    init() {
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let cursorDotX = 0;
+        let cursorDotY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        // Smooth cursor animation
+        const animateCursor = () => {
+            // Cursor follows with delay
+            cursorX += (mouseX - cursorX) * 0.1;
+            cursorY += (mouseY - cursorY) * 0.1;
+            
+            // Dot follows faster
+            cursorDotX += (mouseX - cursorDotX) * 0.3;
+            cursorDotY += (mouseY - cursorDotY) * 0.3;
+            
+            this.cursor.style.left = cursorX + 'px';
+            this.cursor.style.top = cursorY + 'px';
+            this.cursorDot.style.left = cursorDotX + 'px';
+            this.cursorDot.style.top = cursorDotY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        };
+        
+        animateCursor();
+        
+        // Add hover effect on interactive elements
+        const interactiveElements = document.querySelectorAll(
+            'a, button, .btn, .project-card, .skill-card, input, textarea'
+        );
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                this.cursor.classList.add('hover');
+                this.cursorDot.classList.add('hover');
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                this.cursor.classList.remove('hover');
+                this.cursorDot.classList.remove('hover');
+            });
+        });
+    }
+}
+
+// ==================== PARTICLE CANVAS ====================
+class ParticleCanvas {
+    constructor() {
+        this.canvas = document.getElementById('particles-canvas');
+        if (!this.canvas) return;
+        
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.mouse = { x: null, y: null, radius: 150 };
+        
+        this.init();
+        this.animate();
+        this.setupEventListeners();
+    }
+    
+    init() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+        
+        const particleCount = Math.floor((this.canvas.width * this.canvas.height) / 9000);
+        
+        for (let i = 0; i < particleCount; i++) {
+            const size = Math.random() * 3 + 1;
+            const x = Math.random() * this.canvas.width;
+            const y = Math.random() * this.canvas.height;
+            const speedX = (Math.random() - 0.5) * 0.5;
+            const speedY = (Math.random() - 0.5) * 0.5;
+            
+            this.particles.push(new Particle(x, y, speedX, speedY, size, this.ctx));
+        }
+    }
+    
+    setupEventListeners() {
+        window.addEventListener('resize', () => {
+            this.canvas.width = window.innerWidth;
+            this.canvas.height = window.innerHeight;
+            this.particles = [];
+            this.init();
+        });
+        
+        window.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.x;
+            this.mouse.y = e.y;
+        });
+        
+        window.addEventListener('mouseout', () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+        });
+    }
+    
+    animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        this.particles.forEach(particle => {
+            particle.update(this.mouse, this.canvas);
+            particle.draw();
+        });
+        
+        this.connectParticles();
+        requestAnimationFrame(() => this.animate());
+    }
+    
+    connectParticles() {
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const dx = this.particles[i].x - this.particles[j].x;
+                const dy = this.particles[i].y - this.particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    const opacity = 1 - (distance / 100);
+                    this.ctx.strokeStyle = `rgba(0, 212, 255, ${opacity * 0.3})`;
+                    this.ctx.lineWidth = 1;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                    this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                    this.ctx.stroke();
+                }
+            }
+        }
+    }
+}
+
+class Particle {
+    constructor(x, y, speedX, speedY, size, ctx) {
+        this.x = x;
+        this.y = y;
+        this.speedX = speedX;
+        this.speedY = speedY;
+        this.size = size;
+        this.ctx = ctx;
+        this.baseX = x;
+        this.baseY = y;
+        this.density = (Math.random() * 30) + 1;
+    }
+    
+    draw() {
+        this.ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
+        this.ctx.beginPath();
+        this.ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        this.ctx.closePath();
+        this.ctx.fill();
+        
+        // Add glow effect
+        const gradient = this.ctx.createRadialGradient(
+            this.x, this.y, 0,
+            this.x, this.y, this.size * 3
+        );
+        gradient.addColorStop(0, 'rgba(0, 212, 255, 0.4)');
+        gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.beginPath();
+        this.ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+        this.ctx.closePath();
+        this.ctx.fill();
+    }
+    
+    update(mouse, canvas) {
+        // Mouse interaction
+        if (mouse.x != null && mouse.y != null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const forceDirectionX = dx / distance;
+            const forceDirectionY = dy / distance;
+            const maxDistance = mouse.radius;
+            const force = (maxDistance - distance) / maxDistance;
+            const directionX = forceDirectionX * force * this.density;
+            const directionY = forceDirectionY * force * this.density;
+            
+            if (distance < mouse.radius) {
+                this.x -= directionX;
+                this.y -= directionY;
+            } else {
+                if (this.x !== this.baseX) {
+                    const dx = this.x - this.baseX;
+                    this.x -= dx / 10;
+                }
+                if (this.y !== this.baseY) {
+                    const dy = this.y - this.baseY;
+                    this.y -= dy / 10;
+                }
+            }
+        } else {
+            if (this.x !== this.baseX) {
+                const dx = this.x - this.baseX;
+                this.x -= dx / 10;
+            }
+            if (this.y !== this.baseY) {
+                const dy = this.y - this.baseY;
+                this.y -= dy / 10;
+            }
+        }
+        
+        // Move particle
+        this.baseX += this.speedX;
+        this.baseY += this.speedY;
+        
+        // Bounce off edges
+        if (this.baseX < 0 || this.baseX > canvas.width) {
+            this.speedX = -this.speedX;
+        }
+        if (this.baseY < 0 || this.baseY > canvas.height) {
+            this.speedY = -this.speedY;
+        }
+    }
+}
+
 // ==================== LOADING ANIMATION ====================
 window.addEventListener('load', () => {
     const loading = document.getElementById('loading');
@@ -7,6 +243,12 @@ window.addEventListener('load', () => {
             loading.style.display = 'none';
         }, 500);
     }, 1000);
+    
+    // Initialize particle canvas
+    new ParticleCanvas();
+    
+    // Initialize custom cursor
+    new CustomCursor();
 });
 
 // ==================== NAVIGATION ====================
@@ -198,8 +440,18 @@ contactForm.addEventListener('submit', (e) => {
 const projectCards = document.querySelectorAll('.project-card');
 
 projectCards.forEach(card => {
+    // Mouse tracking for glassmorphism glow effect
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        card.style.setProperty('--mouse-x', `${x}%`);
+        card.style.setProperty('--mouse-y', `${y}%`);
+    });
+    
     card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-15px) scale(1.02)';
+        card.style.transform = 'translateY(-12px) scale(1.02)';
     });
     
     card.addEventListener('mouseleave', () => {
