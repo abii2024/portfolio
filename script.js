@@ -588,6 +588,13 @@ async function fetchGitHubProjects(username, perPage = 6, token = null) {
         // Filter out forks if you want (optional)
         const filteredRepos = repos.filter(repo => !repo.fork || repo.stargazers_count > 0);
 
+        // Sort repos: gemeente first, then by updated date
+        filteredRepos.sort((a, b) => {
+            if (a.name === 'gemeente') return -1;
+            if (b.name === 'gemeente') return 1;
+            return new Date(b.updated_at) - new Date(a.updated_at);
+        });
+
         // Clear existing static projects and add fetched ones
         const frag = document.createDocumentFragment();
 
